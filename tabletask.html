@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, tr, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<input type="text" placeholder="ID:" id="id">
+<input type="text" placeholder="name:" id="name">
+<input type="text" placeholder="surname" id="surname">
+
+<input type="button" value="Add list item" id="btn">
+<br><br><br><br>
+
+
+<table style="width:100%">
+   <thead>
+    <td>ID</td>   
+    <td>Name</td>
+    <td>Surname</td>
+    </thead>
+
+    <tbody></tbody>
+
+</body>
+    <script>
+
+
+       const tag = document.querySelector("#btn");
+
+    tag.addEventListener("click" , function(){
+
+        var No = document.getElementById("id").value;
+        console.log(No);
+
+        var student = [];
+
+        
+        student.push({id:document.getElementById("id").value,name:document.getElementById("name").value,surname:document.getElementById("surname").value});
+        
+
+        for(var i = 0 ; i < student.length ; i++){
+            let tr = document.createElement("tr");
+
+            let id = document.createElement("td");
+            id.innerText = student[i].id;
+            let name = document.createElement("td");
+            name.innerText = student[i].name;
+            let surname = document.createElement("td");
+            surname.innerText = student[i].surname;
+            tr.append(id);
+            tr.append(name);
+            tr.append(surname);
+
+            document.querySelector("tbody").append(tr);
+
+            
+            
+        }
+        document.getElementById("id").value= "";
+        document.getElementById("name").value = "";
+        document.getElementById("surname").value = "";
+       })
+    </script>
+    </html>
